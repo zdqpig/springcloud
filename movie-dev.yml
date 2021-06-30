@@ -1,0 +1,22 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: movie
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8888/eureka,http://localhost:9999/eureka
+  instance:
+    prefer-ip-address: true
+
+# 切换ribbon负载均衡算法
+#user:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+feign:
+  hystrix:
+    enabled: true

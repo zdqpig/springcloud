@@ -1,0 +1,27 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: user
+  datasource:
+    url: jdbc:mysql://192.168.10.176:3306/neti?characterEncoding=UTF8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    database: mysql
+  devtools:
+    restart:
+      enabled: false
+eureka:
+  client:
+    fetch-registry: true  # 作为客户端需要从eureka获取注册信息
+    register-with-eureka: true  # 作为客户端需要注册到eureka
+    service-url:  # 服务端注册地址
+      defaultZone: http://localhost:8888/eureka
+#      defaultZone: http://localhost:8888/eureka,http://localhost:9999/eureka
+  instance:
+    prefer-ip-address: true # 优先使用该服务的IP地址注册到eureka
